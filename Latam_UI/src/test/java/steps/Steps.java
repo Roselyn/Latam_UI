@@ -84,8 +84,15 @@ public class Steps {
 	@Então("a tela com as opções de passagens será exibida")
 	public void a_tela_com_as_opções_de_passagens_será_exibida() {
 		
+		WebDriverWait wait = new WebDriverWait(this.driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".trip-dates")));
+		
+		//driver.findElement(By.xpath("//*[@id=\"price-matrix-modal\"]/table/tbody/tr[2]/td[2]/button/span/span[2]/span")).click();
+		
+		//driver.findElement(By.cssSelector("#main-content > div.no-available-flights > div > div:nth-child(2) > div > div > div > div.modal-footer > button > span")).click();
+		
 		String searchTitle = driver.findElement(By.cssSelector(".trip-dates")).getText();
-		Assert.assertEquals(searchTitle, "27 de julho a 10 de agosto de 2020");
+		Assert.assertEquals(searchTitle, "25 de julho a 10 de agosto de 2020");
 
 	}
 
