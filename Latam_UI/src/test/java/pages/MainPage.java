@@ -1,6 +1,5 @@
 package pages;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,7 +25,9 @@ public class MainPage {
 	
 	By data_fi = By.xpath("//a[contains(text(),'10')]");
 	
-	By num_passag = By.xpath("//div[@id='tab-compra']/div/div/div/div/div/div/form/div/div[2]/div/div[2]/div/div[2]/div/div/div/div/div[2]/input");
+	By num_passag = By.cssSelector("#tab-compra > div > div > div > div > div > div > form > div > div.row > div > div.collapsible-panel > div:nth-child(1) > div:nth-child(3) > div.custom-col-sm.custom-col-sm-passengers.col-sm-5.col-xs-12 > div > div > div > div.box-input.col-xs-12.col-sm-push-0.col-sm-12 > span");
+	
+	By num_adulto = By.xpath("//*[@id=\"tab-compra\"]/div/div/div/div/div/div/form/div/div[2]/div/div[2]/div[1]/div[2]/div[1]/div/div/div/div[4]/div[2]/div/div[2]/div/div/div/span[2]/button");
 	
 	By btn_procure_voo = By.cssSelector(".compra__ok-button-region > .button");	
 	
@@ -45,8 +46,7 @@ public class MainPage {
 		wait.until(ExpectedConditions.elementToBeClickable(sel_origem));
 		
 		driver.findElement(sel_origem).click();
-		
-		
+				
 	}
 	
 	public void escreverDestino(String destino) {
@@ -83,9 +83,10 @@ public class MainPage {
 	}
 	
 	public void clickPassageiro() {
-		
+			
 		driver.findElement(num_passag).click();
-		driver.findElement(By.className(".icon-int-more")).click();
+		
+		driver.findElement(num_adulto).click();
 		
 	}
 	

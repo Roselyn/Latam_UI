@@ -21,7 +21,6 @@ import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import pages.MainPage;
 
-
 public class Steps {
 
 	private WebDriver driver;
@@ -70,6 +69,8 @@ public class Steps {
 
 	@E("o número de passageiros válido")
 	public void o_número_de_passageiros_válido() {
+		
+        mainpage.clickPassageiro();
 
 	}
 
@@ -82,10 +83,6 @@ public class Steps {
 
 	@Então("a tela com as opções de passagens será exibida")
 	public void a_tela_com_as_opções_de_passagens_será_exibida() {
-		
-		mainpage.clickPassageiro();
-		
-        driver.findElement(By.cssSelector("icon-int-more icon-xsmall")).click();
 		
 		String searchTitle = driver.findElement(By.cssSelector(".trip-dates")).getText();
 		Assert.assertEquals(searchTitle, "27 de julho a 10 de agosto de 2020");
@@ -104,10 +101,10 @@ public class Steps {
 
 	}
 
-	/*@After(order = 0)
+	@After(order = 0)
 	public void fecharBrowser() {
 
 		driver.quit();
 
-	}*/
+	}
 }
